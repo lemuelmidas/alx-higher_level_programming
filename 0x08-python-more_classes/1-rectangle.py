@@ -1,5 +1,11 @@
 #!/usr/bin/python3
 
+# -*- coding: utf-8 -*-
+"""
+Created on 28th Nov 2023
+File: 1-rectangle.py
+"""
+
 class Rectangle:
     
 

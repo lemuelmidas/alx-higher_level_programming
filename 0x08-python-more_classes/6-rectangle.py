@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+# -*- coding: utf-8 -*-
+"""
+Created on 28th Nov 2023
+File: 6-rectangle.py
+"""
 
 class Rectangle:
     number_of_instances = 0
