@@ -1,6 +1,21 @@
 #!/usr/bin/python3
+"""
+File: 4-print_square.py
+
+"""
+
 
 def print_square(size):
+    """
+    print a square of char #
+
+    Args:
+        size (int): size of the square
+
+    Raises:
+        TypeError: Exception if size is not integer
+        ValueError: Exception if size is less than 0
+    """
     if type(size) is not int:
         raise TypeError("size must be an integer")
 
@@ -9,4 +24,3 @@ def print_square(size):
 
     for i in range(size):
         print('#'*size)
-    
