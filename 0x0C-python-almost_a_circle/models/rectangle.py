@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-File: models/rtectangle.py
+File: rectangle.py
 """
 from models.base import Base
 

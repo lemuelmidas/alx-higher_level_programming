@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 """
-File: models/base.py
+File: base.py
 """
 import json
 

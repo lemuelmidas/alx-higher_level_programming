@@ -1,7 +1,6 @@
 #!/usr/bin/python3
-
 """
-File: models/square.py
+File: square.py
 """
 from models.rectangle import Rectangle
 
