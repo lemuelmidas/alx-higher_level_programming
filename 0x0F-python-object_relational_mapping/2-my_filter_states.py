@@ -1,34 +1,28 @@
 #!/usr/bin/python3
-"""to displaysall values in the states table of hbtn_0e_0_usa where
+"""
+Displays all values in the states table of hbtn_0e_0_usa where
 name matches the argument"""
+
 import MySQLdb
 import sys
 
-if __name__= "__main__":
-    conn = MySQldb.connect(host= "localhost",
-                           port = 3306,
-                           user= sys.argv[1],
-                           passwd = sys.argv[2],
-                           db= sys.argv[3],
-                           charset= "utf8")
 
-    # Start cursor
-    cur = conn.cursor()
-
-    #Query
-    cur.execute("""SELECT * FROM states \
-        WHERE name = '{}' ORDER BY id ASC""".format(sys.arv[4]))
-    query_rows= cur.fetchall()
-
-    # Print query
-    for row in query_rows:
-        if row[1] = sys.argv[4]:
-            print(row)
-
-    # Close cursor
+if __name__ == '__main__':
+    args = sys.argv
+    if len(args) != 5:
+        print("Usage: {} username password database_name".format(args[0]))
+        exit(1)
+    username = args[1]
+    password = args[2]
+    data = args[3]
+    state_name = args[4]
+    db = MySQLdb.connect(host='localhost', user=username,
+                         passwd=password, db=data, port=3306)
+    cur = db.cursor()
+    num_rows = cur.execute("SELECT * FROM states WHERE states.name LIKE BINARY\
+                           '{}' ORDER BY states.id;".format(state_name))
+    rows = cur.fetchall()
+    for row in rows:
+        print(row)
     cur.close()
-    conn.close()
-        
-                
-
-
+    db.close()
