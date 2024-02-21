@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-Prints the first State object from the
-database hbtn_0e_6_usa
+deletes all State objects with a name containing the
+letter 'a' from the database hbtn_0e_6_usa
 """
 
 import sys
@@ -21,14 +21,13 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    # Query
-    query = session.query(State).first()
+    # Update record
+    record = session.query(State).\
+        filter(State.name.like('%a%')).all()
+    for delete_record in record:
+        session.delete(delete_record)
 
-    # Print query
-    if query is None:
-        print("Nothing")
-    else:
-        print("{}: {}".format(query.id, query.name))
+    session.commit()
 
     # Close session
     session.close()

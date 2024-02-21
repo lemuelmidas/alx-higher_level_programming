@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-Prints the first State object from the
-database hbtn_0e_6_usa
+Adds the State object “Louisiana” to
+the database hbtn_0e_6_usa
 """
 
 import sys
@@ -21,14 +21,17 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
+    # Add new record
+    new_state = State(name="Louisiana")
+    session.add(new_state)
+    session.commit()
+
     # Query
-    query = session.query(State).first()
+    query = session.query(State).\
+        order_by(State.id.desc()).first()
 
     # Print query
-    if query is None:
-        print("Nothing")
-    else:
-        print("{}: {}".format(query.id, query.name))
+    print("{}".format(query.id))
 
     # Close session
     session.close()

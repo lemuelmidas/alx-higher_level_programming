@@ -16,7 +16,7 @@ if __name__ == "__main__":
     # Query
     cur.execute("SELECT cities.name FROM cities\
         JOIN states ON cities.state_id = states.id \
-            WHERE ststes.name = %s", sys.argv[4], ))
+            WHERE states.name = %s", (sys.argv[4], ))
 
     query_rows = cur.fetchall()
     out = []
